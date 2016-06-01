@@ -112,18 +112,15 @@ class Game
     }
 
     /**
-     * Player one scores a point
+     * Player scores point
+     * @param Player $player
      */
-    public function playerOneScore()
+    public function wonPoint(Player $player)
     {
-        $this->player1Score++;
-    }
-
-    /**
-     * Player two scores a point
-     */
-    public function playerTwoScore()
-    {
-        $this->player2Score++;
+        if ($player == $this->player1) {
+            $this->player1Score++;
+        } else {
+            $this->player2Score++;
+        }
     }
 }

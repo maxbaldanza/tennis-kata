@@ -8,6 +8,8 @@ use Prophecy\Argument;
 
 class GameSpec extends ObjectBehavior
 {
+    private $player1;
+    private $player2;
 
     const PLAYER_ONE_NAME = 'Player 1';
     const PLAYER_TWO_NAME = 'Player 2';
@@ -17,6 +19,8 @@ class GameSpec extends ObjectBehavior
         $player1 = new Player(self::PLAYER_ONE_NAME);
         $player2 = new Player(self::PLAYER_TWO_NAME);
         $this->beConstructedWith($player1, $player2);
+        $this->player1 = $player1;
+        $this->player2 = $player2;
     }
 
     function it_is_initializable()
@@ -128,11 +132,11 @@ class GameSpec extends ObjectBehavior
     private function createScore($player1Score, $player2Score)
     {
         for ($i = 0; $i < $player1Score; $i++) {
-            $this->playerOneScore();
+            $this->wonPoint($this->player1);
         }
 
         for ($i = 0; $i < $player2Score; $i++) {
-            $this->playerTwoScore();
+            $this->wonPoint($this->player2);
         }
     }
 

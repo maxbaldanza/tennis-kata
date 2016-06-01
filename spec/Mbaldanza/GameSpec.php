@@ -16,11 +16,9 @@ class GameSpec extends ObjectBehavior
 
     function let()
     {
-        $player1 = new Player(self::PLAYER_ONE_NAME);
-        $player2 = new Player(self::PLAYER_TWO_NAME);
-        $this->beConstructedWith($player1, $player2);
-        $this->player1 = $player1;
-        $this->player2 = $player2;
+        $this->player1 = new Player(self::PLAYER_ONE_NAME);
+        $this->player2 = new Player(self::PLAYER_TWO_NAME);
+        $this->beConstructedWith($this->player1, $this->player2);
     }
 
     function it_is_initializable()
